@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>邀请函 · 2026.05.19</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-main: #1e6fff;
+    --blue-light: #4d9fff;
+    --blue-deep: #0a3a8a;
+    --purple: #7c3aed;
+    --gold: #f5c842;
+    --gold-dark: #c9971a;
+    --bg-dark: #03050f;
+    --bg-card: #080f28;
+    --text-white: #f0f6ff;
+    --text-blue-light: #8ab4f8;
+    --text-muted: #6b8cbe;
+    --border-blue: rgba(30,111,255,0.45);
+    --glow: 0 0 24px rgba(30,111,255,0.35);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0d1a;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 24px 16px;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+
+  .card {
+    width: 390px;
+    background: linear-gradient(170deg, #050c20 0%, #03060f 60%, #060212 100%);
+    border: 1px solid rgba(30,111,255,0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 60px rgba(30,111,255,0.12), 0 0 120px rgba(124,58,237,0.08);
+  }
+
+  /* ───── background grid ───── */
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(30,111,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,111,255,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ───── decorative circles ───── */
+  .deco-circle-1 {
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(30,111,255,0.12) 0%, transparent 70%);
+    top: -80px; right: -80px;
+    pointer-events: none; z-index: 0;
+  }
+  .deco-circle-2 {
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,0.10) 0%, transparent 70%);
+    bottom: 200px; left: -60px;
+    pointer-events: none; z-index: 0;
+  }
+
+  /* ───── top black bar ───── */
+  .top-bar {
+    position: relative; z-index: 2;
+    height: 44px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    border-bottom: 1px solid rgba(30,111,255,0.3);
+  }
+  .logo-zone {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-img {
+    height: 28px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1); /* make black logo white */
+  }
+  .top-bar-right {
+    margin-left: auto;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px; color: rgba(30,111,255,0.5);
+    letter-spacing: 2px;
+  }
+
+  /* ───── hero section ───── */
+  .hero {
+    position: relative; z-index: 2;
+    padding: 22px 22px 18px;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 3px; color: var(--blue-light);
+    background: rgba(30,111,255,0.1);
+    border: 1px solid rgba(30,111,255,0.3);
+    border-radius: 20px;
+    padding: 3px 12px;
+    margin-bottom: 12px;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+  }
+  .hero-title {
+    font-size: 26px; font-weight: 900;
+    color: var(--text-white);
+    line-height: 1.2;
+    letter-spacing: 1px;
+  }
+  .hero-title .xf {
+    background: linear-gradient(90deg, #1e6fff, #7c3aed);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-date {
+    margin-top: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px; font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 4px;
+  }
+  .hero-sub {
+    margin-top: 4px;
+    font-size: 11px; color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  /* divider */
+  .divider {
+    position: relative; z-index: 2;
+    margin: 0 22px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(30,111,255,0.5), rgba(124,58,237,0.4), transparent);
+  }
+  .divider-dot {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--blue-main);
+    box-shadow: 0 0 8px var(--blue-main);
+  }
+
+  /* ───── letter section ───── */
+  .letter-wrap {
+    position: relative; z-index: 2;
+    padding: 16px 22px;
+  }
+  .letter-card {
+    background: rgba(8,15,40,0.85);
+    border: 1px solid var(--border-blue);
+    border-radius: 14px;
+    padding: 18px 18px 16px;
+    box-shadow: inset 0 0 20px rgba(30,111,255,0.05), var(--glow);
+    position: relative;
+    overflow: hidden;
+  }
+  .letter-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, #1e6fff, #7c3aed, #1e6fff);
+  }
+  .letter-greeting {
+    font-size: 13px; font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 10px;
+  }
+  .letter-body {
+    font-size: 12px; line-height: 1.85;
+    color: var(--text-blue-light);
+    text-indent: 2em;
+  }
+  .letter-body p { margin-bottom: 8px; }
+  .letter-sign {
+    text-align: right;
+    margin-top: 14px;
+    font-size: 11px; color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .letter-sign strong {
+    display: block;
+    color: var(--text-blue-light);
+    font-size: 12px;
+  }
+
+  /* ───── agenda section ───── */
+  .agenda-wrap {
+    position: relative; z-index: 2;
+    padding: 4px 22px 18px;
+  }
+  .agenda-title {
+    text-align: center;
+    font-size: 15px; font-weight: 700;
+    color: var(--blue-light);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .agenda-title::before,
+  .agenda-title::after {
+    content: '';
+    position: absolute;
+    top: 50%; width: 50px; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(30,111,255,0.6));
+  }
+  .agenda-title::before { right: calc(50% + 90px); background: linear-gradient(90deg, transparent, rgba(30,111,255,0.6)); }
+  .agenda-title::after  { left:  calc(50% + 90px); background: linear-gradient(270deg, transparent, rgba(30,111,255,0.6)); }
+
+  /* timeline */
+  .timeline {
+    position: relative;
+    padding-left: 18px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 12px; bottom: 12px;
+    width: 2px;
+    background: linear-gradient(180deg, #1e6fff 0%, #7c3aed 100%);
+    border-radius: 2px;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+
+  /* node dot */
+  .tl-node {
+    position: absolute;
+    left: -14px; top: 14px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    border: 2px solid var(--blue-main);
+    box-shadow: 0 0 6px var(--blue-main);
+    z-index: 1;
+  }
+
+  /* agenda card */
+  .ag-card {
+    background: linear-gradient(110deg, rgba(14,30,80,0.95) 0%, rgba(40,12,80,0.9) 100%);
+    border: 1px solid rgba(30,111,255,0.3);
+    border-left: 2px solid var(--blue-main);
+    border-radius: 10px;
+    padding: 10px 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(30,111,255,0.1);
+    transition: transform 0.2s;
+  }
+  .ag-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, rgba(30,111,255,0.04), rgba(124,58,237,0.04));
+    pointer-events: none;
+  }
+
+  .ag-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+  .ag-time {
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: #000;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px; font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .ag-theme {
+    font-size: 13px; font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: 0.5px;
+  }
+  .ag-location {
+    font-size: 10px; color: var(--text-blue-light);
+    margin-bottom: 4px;
+    opacity: 0.85;
+  }
+  .ag-desc {
+    font-size: 10.5px; color: #6a8cba;
+    line-height: 1.5;
+  }
+
+  /* ───── bottom ───── */
+  .bottom {
+    position: relative; z-index: 2;
+    padding: 16px 22px 24px;
+    text-align: center;
+  }
+  .bottom-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(30,111,255,0.5), rgba(124,58,237,0.4), transparent);
+    margin-bottom: 16px;
+  }
+  .bottom-phrase {
+    font-size: 13px; font-weight: 500;
+    color: var(--blue-light);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .bottom-dept {
+    font-size: 11px; color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+  .bottom-corner {
+    margin-top: 14px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 9px; color: rgba(30,111,255,0.25);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* scan QR placeholder */
+  .qr-wrap {
+    position: relative; z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0 22px 20px;
+  }
+  .qr-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .qr-frame {
+    width: 80px; height: 80px;
+    border: 2px solid rgba(30,111,255,0.4);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(8,15,40,0.8);
+    position: relative;
+    overflow: hidden;
+  }
+  /* decorative QR corners */
+  .qr-frame::before, .qr-frame::after {
+    content: '';
+    position: absolute;
+    width: 14px; height: 14px;
+    border-color: var(--blue-main);
+    border-style: solid;
+  }
+  .qr-frame::before { top: 5px; left: 5px; border-width: 2px 0 0 2px; }
+  .qr-frame::after  { bottom: 5px; right: 5px; border-width: 0 2px 2px 0; }
+  .qr-inner {
+    font-size: 9px; color: var(--text-muted); text-align: center;
+    line-height: 1.5;
+    padding: 4px;
+  }
+  .qr-label {
+    font-size: 10px; color: var(--text-muted); letter-spacing: 0.5px;
+  }
+
+  /* scan line animation */
+  @keyframes scan {
+    0%   { top: 10%; }
+    100% { top: 85%; }
+  }
+  .scan-line {
+    position: absolute;
+    left: 8%; right: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blue-light), transparent);
+    box-shadow: 0 0 6px var(--blue-light);
+    animation: scan 2s linear infinite;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="deco-circle-1"></div>
+  <div class="deco-circle-2"></div>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="logo-zone">
+      <img src="logo.jpg" style="height:26px;width:auto;filter:brightness(0) invert(1);" alt="xFUSION">
+    </div>
+    <div class="top-bar-right">xFUSION · 2026</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">EXCLUSIVE INVITATION</div>
+    <div class="hero-title">
+      邀请函
+    </div>
+    <div class="hero-date">2026 · 05 · 19</div>
+    <div class="hero-sub">采购认证管理部 · 生产采购三部</div>
+  </div>
+
+  <div class="divider"><div class="divider-dot"></div></div>
+
+  <!-- LETTER -->
+  <div class="letter-wrap">
+    <div class="letter-card">
+      <div class="letter-greeting">尊敬的嘉宾：</div>
+      <div class="letter-body">
+        <p>您好！</p>
+        <p>为深化采购认证管理部与生态伙伴的协同合作，生产采购三部诚挚邀请您参加5月19日专属日程活动。</p>
+        <p>本次活动将带您走进超聚变郑州北龙湖研发基地，亲身体验展厅园区的创新成果，并乘游船沿湖而至，共赴接风晚宴。</p>
+        <p>期待与您相聚，共叙合作情谊！</p>
+      </div>
+      <div class="letter-sign">
+        <strong>超聚变采购认证管理部</strong>
+        生产采购三部
+      </div>
+    </div>
+  </div>
+
+  <!-- AGENDA -->
+  <div class="agenda-wrap">
+    <div class="agenda-title">◆ 活动议程 ◆</div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-node"></div>
+        <div class="ag-card">
+          <div class="ag-top">
+            <span class="ag-time">14:30</span>
+            <span class="ag-theme">集合签到</span>
+          </div>
+          <div class="ag-location">📍 北龙湖研发基地 A 区门口</div>
+          <div class="ag-desc">请各位嘉宾准时抵达，统一集合</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-node"></div>
+        <div class="ag-card">
+          <div class="ag-top">
+            <span class="ag-time">15:00</span>
+            <span class="ag-theme">参观展厅园区</span>
+          </div>
+          <div class="ag-location">📍 超聚变展厅 & 园区</div>
+          <div class="ag-desc">深入了解超聚变创新技术与产品成果</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-node"></div>
+        <div class="ag-card">
+          <div class="ag-top">
+            <span class="ag-time">17:30</span>
+            <span class="ag-theme">游船观光</span>
+          </div>
+          <div class="ag-location">📍 园区码头 → 如意湖码头</div>
+          <div class="ag-desc">乘船从园区码头出发，沿湖航行</div>
+        </div>
+      </div>
+
+   
+      <div class="tl-item">
+        <div class="tl-node"></div>
+        <div class="ag-card">
+          <div class="ag-top">
+            <span class="ag-time">19:00</span>
+            <span class="ag-theme">接风晚宴</span>
+          </div>
+          <div class="ag-location">📍 JW 绿地万豪酒店</div>
+          <div class="ag-desc">晚宴正式开始，共叙合作情谊</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom">
+    <div class="bottom-line"></div>
+    <div class="bottom-phrase">期待与您相聚 · 共叙合作情谊</div>
+    <div class="bottom-dept">超聚变采购认证管理部 · 生产采购三部</div>
+    <div class="bottom-corner">xFUSION · PROCUREMENT CERTIFICATION DEPT · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
